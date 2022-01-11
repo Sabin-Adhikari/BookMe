@@ -29,7 +29,7 @@
         android:textColor="#ECE6E6" />
 
     <TextView
-        android:id="@+id/myHotelName"
+        android:id="@+id/cartHotelName"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_alignParentStart="true"

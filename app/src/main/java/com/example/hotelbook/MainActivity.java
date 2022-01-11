@@ -18,12 +18,14 @@ import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -31,10 +33,12 @@ public class MainActivity extends AppCompatActivity  {
     RecentsAdapter recentsAdapter;
     TopPlacesAdapter topPlacesAdapter;
     ImageView img;
+String[] customerBooking;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+       // Log.d("h1",String.valueOf(customerBooking));
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
  if(getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
      Toast.makeText(MainActivity.this,"Location Permission Granted!",Toast.LENGTH_SHORT).show();
@@ -49,16 +53,30 @@ public class MainActivity extends AppCompatActivity  {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = getIntent();
-//                Bundle b = new Bundle();
-//                b = intent.getExtras();
-//                String[] mybooking = b.getStringArray("fromReceipt");
-               // Intent i = new Intent(MainActivity.this, Receipt.class);
-               // Bundle b1 = new Bundle();
-                //b1.putStringArray("paid", mybooking);
-                //i.putExtras(b);
-                //startActivity(i);
-                finish();           }
+                if(customerBooking ==null){
+                    Toast.makeText(MainActivity.this, "Please make a booking first in order to view your booking!", Toast.LENGTH_SHORT).show();
+                   // Log.d("home", String.valueOf(customerBooking.length));
+                }
+             else
+                 {
+                Intent intent = getIntent();
+                Bundle b = new Bundle();
+                b = intent.getExtras();
+                customerBooking = b.getStringArray("fromR");
+                Log.d("homeR", String.valueOf(customerBooking.length));
+
+                Intent i = new Intent(MainActivity.this, MyBooking.class);
+                Bundle b1 = new Bundle();
+                b1.putStringArray("fromH", customerBooking);
+
+                i.putExtras(b1);
+                Toast.makeText(MainActivity.this, "Finding your booking, Please Wait!", Toast.LENGTH_SHORT).show();
+                startActivity(i);
+
+
+              }
+
+            }
         });
 
 

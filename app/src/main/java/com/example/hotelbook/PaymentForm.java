@@ -50,7 +50,7 @@ public class PaymentForm extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
         hotelName = (TextView)findViewById(R.id.idsjs);
         hotelName.setText(booking[1]+", Sydney");
-        price = (TextView)findViewById(R.id.myHotelName);
+        price = (TextView)findViewById(R.id.cartHotelName);
         price.setText(booking[2]+" - "+"$800");
         country = (TextView)findViewById(R.id.country);
         country.setText(booking[0]);

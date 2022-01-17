@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hotelbook.model.RecentsData;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalPayment;
 import com.paypal.android.sdk.payments.PayPalService;
@@ -21,11 +23,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class PaymentForm extends AppCompatActivity {
     public static final String clientKey = "ATwE7LmAJ7kN6_GVpPa9qfUhV6C_T5lwwRmahihLJ5xjNgfSfVoaB8mk7e8UrNotMjbLEdUuRzRUCtR3";
     public static final int PAYPAL_REQUEST_CODE = 123;
-
+    CheckBox jacuzzi, swimming,meals,beds;
     // Paypal Configuration Object
     private static PayPalConfiguration config = new PayPalConfiguration()
             // Start with mock environment.  When ready,
@@ -36,6 +41,7 @@ public class PaymentForm extends AppCompatActivity {
             .clientId(clientKey);
     private EditText amountEdt;
     private TextView paymentTV;
+    private EditText fullName;
     TextView hotelName, price,country;
     Button receipt;
 
@@ -46,8 +52,11 @@ public class PaymentForm extends AppCompatActivity {
         b = intent.getExtras();
         String[] booking = b.getStringArray("booked");
 
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        fullName = (EditText)findViewById(R.id.customerName);
+
         hotelName = (TextView)findViewById(R.id.idsjs);
         hotelName.setText(booking[1]+", Sydney");
         price = (TextView)findViewById(R.id.cartHotelName);
@@ -58,9 +67,47 @@ public class PaymentForm extends AppCompatActivity {
         receipt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                  int servicePrice = 0;
+                  String services= "";
+                jacuzzi = (CheckBox)findViewById(R.id.jacuzzi);
+                swimming = (CheckBox)findViewById(R.id.swimming);
+                meals = (CheckBox)findViewById(R.id.meal);
+                beds = (CheckBox)findViewById(R.id.beds);
+                if(jacuzzi.isChecked()) {
+                    servicePrice = 50;
+                    services = "Jacuzzi, ";
+                }
+                if(swimming.isChecked()) {
+                    servicePrice += 50;
+                    services += "Swimming Pool, ";
+                }
+                if(meals.isChecked()) {
+                    servicePrice += 50;
+                    services += "Additional Meals (Breakfast + Dinner), ";
+                }
+                if(beds.isChecked()) {
+                    servicePrice += 50;
+                    services += "Additional Beds, ";
+                }
+
                 Intent i = new Intent(PaymentForm.this,Receipt.class);
                 Bundle b = new Bundle();
-                b.putStringArray("paid",booking);
+               String x = fullName.getText().toString();
+                ArrayList<String> bookedHotel = new ArrayList<String>();
+                bookedHotel.add(booking[0]);
+                bookedHotel.add(booking[1]);
+                bookedHotel.add(booking[2]);
+                bookedHotel.add(booking[3]);
+                bookedHotel.add(x);
+                bookedHotel.add(servicePrice+"");
+                bookedHotel.add(services);
+
+
+
+
+              Log.d("service",bookedHotel.get(2));
+
+                b.putStringArrayList("paid",bookedHotel);
                 i.putExtras(b);
                 startActivity(i);
             }
@@ -69,7 +116,7 @@ public class PaymentForm extends AppCompatActivity {
 
 
         // on below line we are initializing our variables.
-        amountEdt = findViewById(R.id.idEdtAmount);
+        amountEdt = findViewById(R.id.customerName);
 
         // creating a variable for button, edit text and status tv.
         Button makePaymentBtn = findViewById(R.id.idBtnPay);
@@ -81,9 +128,13 @@ public class PaymentForm extends AppCompatActivity {
             public void onClick(View v) {
                 // calling a method to get payment.
                 getPayment();
+
             }
         });
     }
+
+
+
 
     private void getPayment() {
 

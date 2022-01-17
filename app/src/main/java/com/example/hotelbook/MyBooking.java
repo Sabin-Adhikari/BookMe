@@ -28,7 +28,7 @@ public class MyBooking extends AppCompatActivity {
 
         name = (TextView) findViewById(R.id.cartHotelName);
         name.setText(mybooking[1]);
-        city = (TextView) findViewById(R.id.cartCity);
+        city = (TextView) findViewById(R.id.cartCustomerName);
         city.setText("Sydney");
         price = (TextView) findViewById(R.id.cartPrice);
         price.setText(mybooking[2] + " - " + "$800");

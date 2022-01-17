@@ -5,6 +5,7 @@ public class hotelView {
     String placeName;
     String price;
 
+
     public hotelView() {
     }
 

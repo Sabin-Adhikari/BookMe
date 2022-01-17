@@ -10,32 +10,44 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Receipt extends AppCompatActivity {
 
-    TextView name, country, city, price;
+    TextView name, country, city, price, service,customer, services;
     ImageView img;
     Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ArrayList<String> mybooking = new ArrayList<String>();
+        ArrayList<String> clone = new ArrayList<String>();
         Intent intent = getIntent();
         Bundle b = new Bundle();
         b = intent.getExtras();
-        String[] mybooking = b.getStringArray("paid");
-        Log.d("receipt",String.valueOf(mybooking.length));
+       mybooking = b.getStringArrayList("paid");
+       for(int i=0;i<mybooking.size();i++){
+           clone.add(mybooking.get(i));
+       }
+       // Log.d("receipt",String.valueOf(mybooking.size());
+         Log.d("receipt",mybooking.get(6)+"");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receipt);
 
         name = (TextView) findViewById(R.id.cartHotelName);
-        name.setText(mybooking[1]);
-        city = (TextView) findViewById(R.id.cartCity);
-        city.setText("Sydney");
+        name.setText(mybooking.get(1));
         price = (TextView) findViewById(R.id.cartPrice);
-        price.setText(mybooking[2] + " - " + "$800");
+        price.setText(mybooking.get(2) + " - " + "$800");
         country = (TextView) findViewById(R.id.cartCountry);
-        country.setText(mybooking[0]);
+        country.setText(mybooking.get(0) +" ,Sydney");
         img = (ImageView) findViewById(R.id.cartImage);
-        img.setImageResource(Integer.parseInt(mybooking[3]));
+        img.setImageResource(Integer.parseInt(mybooking.get(3)));
+        service = (TextView)findViewById(R.id.cartServicePrice);
+        service.setText("Additional Service Price: $"+mybooking.get(5));
+        customer = (TextView)findViewById(R.id.cartCustomerName);
+        customer.setText(mybooking.get(4));
+        services = (TextView)findViewById(R.id.cartServices);
+        services.setText("Additonal Services: "+mybooking.get(6)+"");
 
         btn = (Button) findViewById(R.id.viewhome);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +55,7 @@ public class Receipt extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(Receipt.this, MainActivity.class);
                 Bundle b = new Bundle();
-                b.putStringArray("fromR", mybooking);
+                b.putStringArrayList("fromR",clone);
                 i.putExtras(b);
                 startActivity(i);
             }

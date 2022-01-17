@@ -16,17 +16,17 @@
 
     <TextView
         android:id="@+id/cartServices"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="408dp"
+        android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="536dp"
-        android:layout_marginEnd="-3dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="505dp"
+        android:layout_marginEnd="7dp"
         android:gravity="center"
-        android:textSize="16dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/cartServicePrice"
@@ -36,72 +36,72 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="-2dp"
-        android:layout_marginTop="589dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="573dp"
+        android:layout_marginEnd="-1dp"
         android:gravity="center"
-        android:textSize="16dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/cartPrice"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="wrap_content"
+        android:layout_height="41dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="-5dp"
-        android:layout_marginTop="366dp"
+        android:layout_marginTop="346dp"
         android:layout_marginEnd="5dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/cartCountry"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="400dp"
+        android:layout_height="42dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="427dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="387dp"
+        android:layout_marginEnd="9dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/cartCustomerName"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="400dp"
+        android:layout_height="44dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="483dp"
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="194dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="428dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="258dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/cartHotelName"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        android:layout_width="400dp"
+        android:layout_height="39dp"
         android:layout_below="@+id/cartImage"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-1dp"
         android:layout_marginTop="-1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="12dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/idsjs"
@@ -126,9 +126,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="-1dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginBottom="25dp"
         android:backgroundTint="#2F850A"
         android:gravity="center"
         android:text="Take me Home!"

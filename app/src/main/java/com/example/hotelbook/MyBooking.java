@@ -9,9 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MyBooking extends AppCompatActivity {
 
-    TextView name, country, city, price;
+    TextView name, country, city, price, service,customer, services;
     ImageView img;
     Button btn;
 
@@ -24,18 +26,23 @@ public class MyBooking extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle b = new Bundle();
         b = intent.getExtras();
-        String[] mybooking = b.getStringArray("fromH");
+        ArrayList<String> mybooking = new ArrayList<String>();
+         mybooking = b.getStringArrayList("fromH");
 
-        name = (TextView) findViewById(R.id.cartHotelName);
-        name.setText(mybooking[1]);
-        city = (TextView) findViewById(R.id.cartCustomerName);
-        city.setText("Sydney");
-        price = (TextView) findViewById(R.id.cartPrice);
-        price.setText(mybooking[2] + " - " + "$800");
-        country = (TextView) findViewById(R.id.cartCountry);
-        country.setText(mybooking[0]);
-        img = (ImageView) findViewById(R.id.cartImage);
-        img.setImageResource(Integer.parseInt(mybooking[3]));
+        name = (TextView) findViewById(R.id.myHotelName);
+        name.setText(mybooking.get(1));
+        price = (TextView) findViewById(R.id.myHotelPrice);
+        price.setText(mybooking.get(2) + " - " + "$800");
+        country = (TextView) findViewById(R.id.myCountry);
+        country.setText(mybooking.get(0) +" ,Sydney");
+        img = (ImageView) findViewById(R.id.myImage);
+        img.setImageResource(Integer.parseInt(mybooking.get(3)));
+        service = (TextView)findViewById(R.id.myServicePrice);
+        service.setText("Additional Service Price: $"+mybooking.get(5));
+        customer = (TextView)findViewById(R.id.myName);
+        customer.setText(mybooking.get(4));
+        services = (TextView)findViewById(R.id.myServices);
+        services.setText("Additonal Services: "+mybooking.get(6)+"");
 
         btn = (Button) findViewById(R.id.viewhome);
         btn.setOnClickListener(new View.OnClickListener() {

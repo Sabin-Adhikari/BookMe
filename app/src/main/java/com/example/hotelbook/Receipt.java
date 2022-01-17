@@ -45,7 +45,7 @@ public class Receipt extends AppCompatActivity {
         service = (TextView)findViewById(R.id.cartServicePrice);
         service.setText("Additional Service Price: $"+mybooking.get(5));
         customer = (TextView)findViewById(R.id.cartCustomerName);
-        customer.setText(mybooking.get(4));
+        customer.setText("Customer Name: "+mybooking.get(4));
         services = (TextView)findViewById(R.id.cartServices);
         services.setText("Additonal Services: "+mybooking.get(6)+"");
 

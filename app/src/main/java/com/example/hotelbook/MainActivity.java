@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity  {
     RecentsAdapter recentsAdapter;
     TopPlacesAdapter topPlacesAdapter;
     ImageView img;
-String[] customerBooking;
+ArrayList<String>customerBooking = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +53,7 @@ String[] customerBooking;
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(customerBooking ==null){
+                if(customerBooking.isEmpty()){
                     Toast.makeText(MainActivity.this, "Please make a booking first in order to view your booking!", Toast.LENGTH_SHORT).show();
                    // Log.d("home", String.valueOf(customerBooking.length));
                 }
@@ -62,12 +62,12 @@ String[] customerBooking;
                 Intent intent = getIntent();
                 Bundle b = new Bundle();
                 b = intent.getExtras();
-                customerBooking = b.getStringArray("fromR");
-                Log.d("homeR", String.valueOf(customerBooking.length));
+                customerBooking = b.getStringArrayList("fromR");
+                Log.d("homeR", String.valueOf(customerBooking.size()));
 
                 Intent i = new Intent(MainActivity.this, MyBooking.class);
                 Bundle b1 = new Bundle();
-                b1.putStringArray("fromH", customerBooking);
+                b1.putStringArrayList("fromH", customerBooking);
 
                 i.putExtras(b1);
                 Toast.makeText(MainActivity.this, "Finding your booking, Please Wait!", Toast.LENGTH_SHORT).show();

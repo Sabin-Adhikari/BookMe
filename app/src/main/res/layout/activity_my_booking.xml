@@ -22,11 +22,11 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="488dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginTop="511dp"
+        android:layout_marginEnd="9dp"
         android:gravity="center"
-        android:textSize="16dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/myServicePrice"
@@ -37,10 +37,10 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="551dp"
+        android:layout_marginTop="568dp"
         android:layout_marginEnd="-3dp"
         android:gravity="center"
-        android:textSize="16dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/myHotelPrice"
@@ -55,7 +55,7 @@
         android:layout_marginEnd="5dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/myCountry"
@@ -70,7 +70,7 @@
         android:layout_marginEnd="-2dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/myName"
@@ -87,7 +87,7 @@
         android:layout_marginBottom="245dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/myHotelName"
@@ -101,7 +101,7 @@
         android:layout_marginEnd="12dp"
         android:gravity="center"
         android:text="hotel"
-        android:textSize="16dp" />
+        android:textSize="22dp" />
 
     <TextView
         android:id="@+id/idsjs"

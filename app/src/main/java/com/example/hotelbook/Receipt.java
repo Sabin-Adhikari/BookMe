@@ -56,7 +56,10 @@ public class Receipt extends AppCompatActivity {
                 Intent i = new Intent(Receipt.this, MainActivity.class);
                 Bundle b = new Bundle();
                 b.putStringArrayList("fromR",clone);
+                Log.d("clone",clone.get(1)+"");
                 i.putExtras(b);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
                 startActivity(i);
             }
         });

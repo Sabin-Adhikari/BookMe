@@ -34,10 +34,23 @@ public class MainActivity extends AppCompatActivity  {
     TopPlacesAdapter topPlacesAdapter;
     ImageView img;
 ArrayList<String>customerBooking = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try{
+            Intent intent = getIntent();
+            Bundle b = new Bundle();
+            b = intent.getExtras();
+            customerBooking = b.getStringArrayList("fromR");
+            Log.d("homeR", String.valueOf(customerBooking.size()));
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
        // Log.d("h1",String.valueOf(customerBooking));
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
  if(getApplicationContext().checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
@@ -55,15 +68,10 @@ ArrayList<String>customerBooking = new ArrayList<String>();
             public void onClick(View view) {
                 if(customerBooking.isEmpty()){
                     Toast.makeText(MainActivity.this, "Please make a booking first in order to view your booking!", Toast.LENGTH_SHORT).show();
-                   // Log.d("home", String.valueOf(customerBooking.length));
+                   Log.d("home", String.valueOf(customerBooking.size()));
                 }
              else
                  {
-                Intent intent = getIntent();
-                Bundle b = new Bundle();
-                b = intent.getExtras();
-                customerBooking = b.getStringArrayList("fromR");
-                Log.d("homeR", String.valueOf(customerBooking.size()));
 
                 Intent i = new Intent(MainActivity.this, MyBooking.class);
                 Bundle b1 = new Bundle();
@@ -71,8 +79,8 @@ ArrayList<String>customerBooking = new ArrayList<String>();
 
                 i.putExtras(b1);
                 Toast.makeText(MainActivity.this, "Finding your booking, Please Wait!", Toast.LENGTH_SHORT).show();
-                startActivity(i);
 
+                startActivity(i);
 
               }
 

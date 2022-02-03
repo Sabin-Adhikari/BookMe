@@ -13,7 +13,7 @@
     <!--text view for displaying payment status-->
 
     <EditText
-        android:id="@+id/idEdtAmount2"
+        android:id="@+id/idAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/idsjs"

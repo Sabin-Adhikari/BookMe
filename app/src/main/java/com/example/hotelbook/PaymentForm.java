@@ -103,10 +103,6 @@ public class PaymentForm extends AppCompatActivity {
                 bookedHotel.add(services);
 
 
-
-
-              Log.d("service",bookedHotel.get(2));
-
                 b.putStringArrayList("paid",bookedHotel);
                 i.putExtras(b);
                 startActivity(i);
@@ -116,18 +112,20 @@ public class PaymentForm extends AppCompatActivity {
 
 
         // on below line we are initializing our variables.
-        amountEdt = findViewById(R.id.customerName);
+        amountEdt = (EditText)findViewById(R.id.idAmount);
 
         // creating a variable for button, edit text and status tv.
-        Button makePaymentBtn = findViewById(R.id.idBtnPay);
+        Button makePaymentBtn = (Button)findViewById(R.id.idBtnPay);
         paymentTV = findViewById(R.id.idTVStatus);
 
         // on below line adding click listener to our make payment button.
         makePaymentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // calling a method to get payment.
                 getPayment();
+
 
             }
         });
@@ -157,6 +155,7 @@ public class PaymentForm extends AppCompatActivity {
         // Starting the intent activity for result
         // the request code will be used on the method onActivityResult
         startActivityForResult(intent, PAYPAL_REQUEST_CODE);
+        Log.d("paypal","its working");
     }
 
     @Override

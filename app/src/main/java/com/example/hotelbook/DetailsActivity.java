@@ -22,7 +22,7 @@ ImageView hotelImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent  = getIntent();
-        //String h = intent.getStringExtra("hotel");
+      
         Gson gson = new Gson();
         hotelView myHotel;
          myHotel =  gson.fromJson(intent.getStringExtra("hotel"),hotelView.class);
